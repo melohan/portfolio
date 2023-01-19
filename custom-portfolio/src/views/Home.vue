@@ -1,6 +1,5 @@
 <script setup>
-import { defineComponent } from 'vue'
-import homeData from '../assets/data/home.json'
+import homeData from '.././assets/data/home.json'
 
 // Props
 // -------------------------------------------
@@ -18,10 +17,12 @@ const homeContent = homeData;
 </script>
 
 <template>
-  <section class="page-section bg-dark p-2">
-    <h1>{{ title }}</h1>
-    <div v-for="(value, key) in homeData" :key="key">
-      {{ key }} : {{ value }}
+  <div class="d-flex justify-content-center flex-column">
+    <div class="p-2 ">
+      <h1 class="text-uppercase">{{ title }}</h1>
     </div>
-  </section>
+    <div class="p-2" v-for="(value, key) in homeData" :key="key">    
+        {{ value }}
+    </div>
+  </div>
 </template>
