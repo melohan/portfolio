@@ -1,4 +1,7 @@
 {
     "greet": "Hi",
-    "welcome": "Welcome to my portfolio"
+    "welcome": "Welcome to my portfolio",
+    "intro" : "My name is",
+    "firstname": "Mélodie",
+    "lastname": "O."
 }
