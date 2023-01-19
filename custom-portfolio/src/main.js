@@ -6,14 +6,26 @@ import App from './App.vue'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 
+
 // Import GSAP
 // --------------------------------------------------
-import gsap from "gsap";
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-// get other plugins:
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Flip from "gsap/Flip";
-import Draggable from "gsap/Draggable";
+// Vueuse/motion
+// --------------------------------------------------
+import { MotionPlugin } from '@vueuse/motion'
+
+// Import general css
+// --------------------------------------------------
+
+import './assets/main.css'
 
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+gsap.registerPlugin(ScrollTrigger)
+
+app.use(MotionPlugin)
+
+app.mount('#app')

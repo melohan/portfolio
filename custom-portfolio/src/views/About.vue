@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div id="app">
-     <h1>{{ title }}</h1>
-  </div>
+  <section class="page-section bg-section p-2">
+    <h1>{{ title }}</h1>
+  </section>
 </template>

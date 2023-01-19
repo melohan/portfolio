@@ -18,10 +18,10 @@ const homeContent = homeData;
 </script>
 
 <template>
-  <div id="app">
+  <section class="page-section bg-dark p-2">
     <h1>{{ title }}</h1>
-     <div v-for="(value, key) in homeData" :key="key">
-        {{ key }} : {{ value }}
+    <div v-for="(value, key) in homeData" :key="key">
+      {{ key }} : {{ value }}
     </div>
-  </div>
+  </section>
 </template>
