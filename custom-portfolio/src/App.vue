@@ -67,13 +67,13 @@ window.onload = () => {
       <section class="main-section bg-dark">
         <Education title="Education" />
       </section>
-      <section class="main-section bg-dark">
+      <section class="main-section bg-light">
         <Experiences title="Experiences" />
       </section>
       <section class="main-section bg-dark">
         <Skills title="Skills" />
       </section>
-      <section class="main-section bg-dark">
+      <section class="main-section bg-light">
         <Realizations title="My realizations" />
       </section>
     </div>
