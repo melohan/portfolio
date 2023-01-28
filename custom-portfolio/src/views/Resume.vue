@@ -20,7 +20,7 @@ defineProps({
       <div class="section-title">
         <span>{{ title }}</span>
         <h2>{{ title }}</h2>
-        <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+        <p>Here is an overview of my summary</p>
       </div>
       <div class="row">
         <!-- Left col-->
