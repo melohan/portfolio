@@ -1,0 +1,51 @@
+{
+    "Summary" : 
+    {
+        "title" : "Advanced Federal Diploma of Higher Education",
+        "location"  : "CPNV, Sainte-Croix",
+        "text"  : "Second-year student in advanced federal diploma in software development."
+    },
+
+    "Education":
+    {
+        "e1" : 
+        {
+            "title" : "Federal Vocational Baccalaureate",
+            "date"  : "2017-2018", 
+            "location" : "ETML, Lausanne",
+            "text" : "Full-time student in science and technology"
+        },
+        "e2" : 
+        {
+            "title" : "Federal Diploma of Vocational Education and Training",
+            "date"  : "2011-2016", 
+            "location" : "CPNV, Sainte-Croix",
+            "text" : "Full-time apprenticeship in computer science"
+        }
+    },
+    "Experience": 
+    {
+        "e1" : 
+        {
+            "title" : "Internship in application development",
+            "date"  : "2022",
+            "location" : "Yverdon-les-Bains",
+            "text" : "Creation of a python package for a FineTech company"
+        },
+        "e2" : 
+        {
+            "title" : "IT support",
+            "date"  : "2017",
+            "location" : "Lausanne",
+            "text" : "IT support and system administrator for several companies."
+        },
+        "e3":
+        {
+            "title" : "Internship in application development",
+            "date"  : "2015",
+            "location" : "Lausanne",
+            "text" : "Development of a network mapping application."
+        }
+
+    }
+}

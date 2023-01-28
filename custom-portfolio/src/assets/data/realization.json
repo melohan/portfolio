@@ -1,0 +1,26 @@
+{
+  "0": {
+    "title" : "This porfolio",
+    "description": "This portfolio was created as part of a project at CPNV. The goal here was to explore JavaScript animation libraries.",
+    "references": "VueJS 3, GSAP 3, Bootstrap",
+    "link": "https://github.com/melohan/portfolio"
+  },
+  "1": {
+    "title" : "Enigma",
+    "description": "Group project reproducing the mechanics of the famous Enigma machine. It was used to encrypt and decrypt information",
+    "references": "Java console app",
+    "link": "https://github.com/melohan/Enigmadee"
+  },
+  "2": {
+    "title" : "PokeCharts (Backend)",
+    "description": "Group project done at CPNV, the goal is to implement a Pokemon API providing data to a React front end.",
+    "references": "C#.NET, GraphQLde",
+    "link": "https://github.com/yannickcpnv/PokeCharts-Backend"
+  },
+  "3": {
+    "title" : "BI Python Azure",
+    "description": "Creation of a microservice implementing a DataObject for Azure. It includes an API and a library.",
+    "references": "FLask Python, Docker, Azure Python SDK",
+    "link": "https://github.com/CPNV-ES-BI/BI_PYTHON_AZURE"
+  }
+}

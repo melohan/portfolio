@@ -1,7 +1,5 @@
 {
-    "greet": "Hi",
-    "welcome": "Welcome to my portfolio",
-    "intro" : "My name is",
-    "firstname": "Mélodie",
-    "lastname": "O."
+    "intro" : "to my personnal portfolio!",
+    "introduction": "My name is Mélodie Ohan.",
+    "description": "This portfolio was created as part of a project at CPNV. The goal here was to explore JavaScript animation libraries. I hope you'll enjoy the content!"
 }

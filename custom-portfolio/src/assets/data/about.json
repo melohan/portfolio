@@ -1,0 +1,23 @@
+{
+    "about": "I am a second-year student in advanced federal diploma in software development.",
+
+    "general" : 
+    {
+        "name" : "Mélodie Ohan",
+        "age": "28",
+        "country": "Switzerland"
+   },
+   "details" :
+   {
+        "status" : "student",
+        "languages": "french, english, turkish",
+        "email" : "melohan@mydomain.ch"
+   },
+   "hobbies" : 
+    {
+        "Technology" : "I enjoy learning new technologies. For example, I'm learning how to make video games in the aim of one day participating in a game jam.",
+        "Reading" : "I read a lot of books about science. I highly recommend you: A brief history of time by Stephen Hawking.",
+        "Sports" : "Sport has always been an important part of my life. I have done basketball, boxing, rollerblading and now I am starting to enjoy running.",
+        "Painting" : " I am passionate about painting and everything around it.I am currently learning how to do portraits through books and online tutorials. "
+    }
+}
