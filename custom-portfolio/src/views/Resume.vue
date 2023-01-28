@@ -23,10 +23,10 @@ defineProps({
         <p>Here is an overview of my summary</p>
       </div>
       <div class="row">
-        <!-- Left col-->
+        <!------------------------- Left col ------------------------->
         <div class="col-lg-6">
 
-          <!-- Main sumary-->
+          <!-- Summary -->
           <div v-if="Summary">
             <h3 class="resume-title">Summary</h3>
             <div class="resume-item pb-0">
@@ -35,8 +35,7 @@ defineProps({
               <p>{{ Summary.text }}</p>
             </div>
           </div>
-          <!-- End main sumary-->
-
+          <!-- Education -->
           <h3 class="resume-title">Education</h3>
           <div v-if="Education">
             <div v-for="(edu, key) in Education" :key="key">
@@ -49,9 +48,10 @@ defineProps({
             </div>
           </div>
         </div>
-        <!-- End left col -->
-        <!-- Right Col -->
+        <!------------------------- Right col ------------------------->
         <div class="col-lg-6">
+
+          <!-- Professional experiences -->
           <h3 class="resume-title">Professional Experience</h3>
           <div v-if="Experience">
             <div v-for="(exp, key) in Experience" :key="key">
@@ -64,7 +64,7 @@ defineProps({
             </div>
           </div>
         </div>
-        <!--Right left col-->
+
       </div>
     </div>
   </section>
