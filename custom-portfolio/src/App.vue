@@ -1,22 +1,21 @@
 <script setup>
 import Home from './views/Home.vue'
 import About from './views/About.vue'
-import Education from './views/Education.vue'
-import Experiences from './views/Education.vue'
+import Resume from './views/Resume.vue'
 import Skills from './views/Skills.vue'
 import Realizations from './views/Realizations.vue'
 
-import { gsap } from "gsap";
+import {gsap} from "gsap";
 
 
 /**
  * This function implement the horizontal scroll between sections
- * @param {*} containerElement  expect an unique container 
+ * @param {*} containerElement  expect an unique container
  * @param {*} sectionsElements  expect a class repeted and container in ContainerElement
  * @notes This code implement https://codepen.io/AkhilRaja/pen/PopdVMe
  */
 function horizontalScroll(containerElement, sectionsElements) {
-  
+
   let sections = gsap.utils.toArray(sectionsElements);
   let containerScrollWidth = document.querySelector(containerElement).scrollWidth;
 
@@ -24,7 +23,7 @@ function horizontalScroll(containerElement, sectionsElements) {
     scrollTrigger: {
       trigger: containerElement,
       // The animation will be pinned to the scroll position
-      pin: true,  
+      pin: true,
       start: "0% 0%",
       // The animation will continue until the end of the container element is reached
       end: "+=" + (containerScrollWidth - window.innerWidth),
@@ -33,18 +32,18 @@ function horizontalScroll(containerElement, sectionsElements) {
       snap: {
         // the animation will jump to specific points as the user scrolls
         snapTo: 1 / (sections.length - 1),
-        duration: { min: 0.1, max: 0.2 },
+        duration: {min: 0.2, max: 0.3},
         delay: 0,
         // Start and end the animation slowly
         ease: "sine.inOut"
       }
     }
   });
-  horizontalScroll.to(sections, 
-  {
-    xPercent: -100 * (sections.length - 1),
-    ease: "none"
-  });
+  horizontalScroll.to(sections,
+      {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none"
+      });
 }
 
 var mainContainer = "#main-container"
@@ -59,36 +58,51 @@ window.onload = () => {
   <div id="app">
     <div id="main-container">
       <section class="main-section bg-dark">
-        <Home title="Welcome to my portfolio!" />
+        <Home title="Welcome"/>
       </section>
       <section class="main-section bg-light">
-        <About title="About me" />
+        <About title="About me"/>
       </section>
       <section class="main-section bg-dark">
-        <Education title="Education" />
+        <Resume title="My resume"/>
       </section>
       <section class="main-section bg-light">
-        <Experiences title="Experiences" />
+        <Skills title="Skills"/>
       </section>
       <section class="main-section bg-dark">
-        <Skills title="Skills" />
-      </section>
-      <section class="main-section bg-light">
-        <Realizations title="My realizations" />
+        <Realizations title="Realizations"/>
       </section>
     </div>
   </div>
 </template>
 
 <style scoped>
+
+
+body {
+  color: #202020 !important;
+  font-family: "Satisfy", serif !important;
+}
+
+.sub-container {
+  width: 80vw;
+  height: 90vh;
+}
+
+
 ::-webkit-scrollbar {
-  display: none;
+  width: 0;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 #main-container {
@@ -107,13 +121,14 @@ window.onload = () => {
 }
 
 .bg-light {
-    background: #e1e1e1 !important;
-    color: #161618;
+  background-color: #eee !important;
+  color: #1C1B22;
 }
 
 .bg-dark {
-  background: #515062 !important;
-  color: #e1e1e1;
+  background-color: #1C1B22 !important;
+  color: #eee;
 }
+
 
 </style>
