@@ -1,0 +1,38 @@
+{
+  "Languages": {
+    "l1": {
+      "name": "French",
+      "value": "100"
+    },
+    "l2": {
+      "name": "English",
+      "value": "65"
+    },
+    "l3": {
+      "name": "Turkish",
+      "value": "50"
+    },
+    "l4": {
+      "name": "German",
+      "value": "25"
+    }
+  },
+  "Business": {
+    "b1": {
+      "name": "Python",
+      "value": "85"
+    },
+    "b2": {
+      "name": "PHP Laravel",
+      "value": "75"
+    },
+    "b3": {
+      "name": "C# .NET",
+      "value": "55"
+    },
+    "b4": {
+      "name": "Vue JS ",
+      "value": "40"
+    }
+  }
+}

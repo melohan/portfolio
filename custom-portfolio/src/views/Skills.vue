@@ -1,5 +1,10 @@
 <script setup>
 import ProgressBar from '@/components/ProgressBar.vue'
+import skillsData from '@/assets/data/skills.json'
+
+const Languages = skillsData.Languages
+const Business = skillsData.Business
+
 
 defineProps({
   title: {
@@ -25,10 +30,11 @@ defineProps({
         </div>
         <div class="d-flex justify-content-center">
           <div class="mb-0" style="width: 50vw">
-            <ProgressBar name="Français" :value="100"/>
-            <ProgressBar name="Anglais" :value="65"/>
-            <ProgressBar name="Turc" :value="50"/>
-            <ProgressBar name="Allemand" :value="25"/>
+            <div v-if="Languages">
+              <div v-for="(language, key) in Languages" :key="key">
+                <ProgressBar v-bind:name="language.name" v-bind:value="parseInt(language.value)"/>
+              </div>
+            </div>
           </div>
         </div>
         <div class="d-flex justify-content-center">
@@ -36,11 +42,11 @@ defineProps({
         </div>
         <div class="d-flex justify-content-center">
           <div class="mb-0" style="width: 50vw">
-            <ProgressBar name="Python" :value="85"/>
-            <ProgressBar name="PHP Laravel" :value="75"/>
-            <ProgressBar name="C# .NET" :value="55"/>
-            <ProgressBar name="React Native" :value="45"/>
-            <ProgressBar name="VueJS 3" :value="40"/>
+            <div v-if="Business">
+              <div v-for="(bu, key) in Business" :key="key">
+                <ProgressBar v-bind:name="bu.name" v-bind:value="parseInt(bu.value)"/>
+              </div>
+            </div>
           </div>
         </div>
 
