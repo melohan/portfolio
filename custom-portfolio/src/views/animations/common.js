@@ -50,3 +50,9 @@ export const controlledMoveToRight = {
     delay: -1.5,
     ease: "power2.in",
 }
+
+// Animations on titles
+// These two animation in a timeline
+// Will make the text from small to big
+export const fromSmallText = {duration: 1.5, scale: 0.1}
+export const toBigText = {duration: 1, scale: 1}

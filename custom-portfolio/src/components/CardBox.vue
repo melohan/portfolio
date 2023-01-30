@@ -17,11 +17,11 @@ defineProps({
 </script>
 
 <template>
-  <div class="icon-box">
+  <div class="icon-box cardBox">
     <div class="d-flex flex-column m-0 p-0">
-      <div class="p-2">
-        <div class="p-2"><h4 class="title"><a v-bind:href="projPath">{{ title }}</a></h4></div>
-        <div class="p-2"><p class="description">{{ description }}</p></div>
+      <div class="p-1">
+        <div class="p-1 m-0"><h4 class="title"><a v-bind:href="projPath">{{ title }}</a></h4></div>
+        <div class="p-1 m-0"><p class="description">{{ description }}</p></div>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@ defineProps({
 <style scoped>
 .icon-box {
   color: #1C1B22 !important;
-  width: 17vw;
+  width: 15vw;
   margin: 2%;
 }
 

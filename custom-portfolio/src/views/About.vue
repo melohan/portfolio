@@ -1,9 +1,77 @@
+<script setup>
+
+import {ref, onMounted, onBeforeUnmount} from 'vue'
+import { gsap } from "gsap";
+
+// The page's data is contained in about.json
+import aboutData from '@/assets/data/about.json'
+
+// Props
+// ------------------------------------------------------------------------
+defineProps({
+  title: {
+    type: String,
+    required: true
+  }
+})
+
+//  References
+// ------------------------------------------------------------------------
+const aboutSection = ref(null);
+const aboutIntro = ref(null);
+const aboutImg = ref(null)
+const aboutGeneral = ref(null)
+const aboutDetails = ref(null)
+const aboutHobbies = ref(null)
+
+// Animation definition
+// ------------------------------------------------------------------------
+// power3.inOut: smooth gradual acceleration, start and the end with a slow speed
+const slowerDurationReveal = { opacity: 0, ease: "power3.inOut", duration: 1.3 };
+const shortDurationReveal = { opacity: 0, ease: "power3.inOut", duration: 1 };
+
+const setLowInvertedFilter = { filter: "invert(0%)", duration: 2 };
+const setHighInvertedFilter = { filter: "invert(100%)", duration: 2 };
+
+
+// OnMount
+// ------------------------------------------------------------------------
+onMounted(() => {
+
+  // Animations
+  // -----------------------
+  const currentSectionTimeline = gsap.timeline({ paused: true });
+  currentSectionTimeline.from(aboutImg.value, slowerDurationReveal)
+      .from(aboutIntro.value, shortDurationReveal)
+      .from(aboutGeneral.value, shortDurationReveal)
+      .from(aboutDetails.value, shortDurationReveal)
+      .from(aboutHobbies.value, shortDurationReveal)
+      .fromTo(aboutImg.value, setLowInvertedFilter, setHighInvertedFilter);
+
+  // EventListener on Scroll
+  // -----------------------
+  window.addEventListener('scroll', () => {
+    // Run the animation when the section is in the middle of the viewport
+    if (aboutSection.value.getBoundingClientRect().left < window.innerWidth) {
+      currentSectionTimeline.play();
+    }
+  })
+});
+
+// BeforeMount (destroy the EventListener on Scroll)
+// ------------------------------------------------------------------------
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
+</script>
+
 <template>
   <section id="about" class="about" ref="aboutSection">
     <div class="container">
       <div ref="aboutIntro" class="section-title">
-        <span>{{ title }}</span>
-        <h2>{{ title }}</h2>
+        <span>[{{ title }}]</span>
+        <h2>[{{ title }}]</h2>
         <p>{{ aboutData.about }}</p>
       </div>
       <div class="row">
@@ -35,7 +103,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- End .content-->
+          </div>
 
         </div>
       </div>
@@ -44,71 +112,7 @@
   </section><!-- End About Me Section -->
 </template>
 
-<script setup>
-import {ref, onMounted} from 'vue'
-import { gsap } from "gsap";
-import aboutData from '@/assets/data/about.json'
-
-// Props
-// -------------------------------------------
-defineProps({
-  title: {
-    type: String,
-    required: true
-  }
-})
-
-//  References
-// -------------------------------------------
-const aboutSection = ref(null);
-const aboutIntro = ref(null);
-const aboutImg = ref(null)
-const aboutGeneral = ref(null)
-const aboutDetails = ref(null)
-const aboutHobbies = ref(null)
-
-
-// Animations
-// -------------------------------------------
-
-const mediumReveal = {
-  opacity: 0,
-  ease: "power3.inOut",
-  duration: 1.3
-};
-
-const fastReveal = {
-  opacity: 0,
-  ease: "power3.inOut",
-  duration: 1
-}
-
-onMounted(() => {
-
-  const tl2 = gsap.timeline({ paused: true });
-  tl2.from(aboutImg.value, mediumReveal)
-      .from(aboutIntro.value, fastReveal)
-      .from(aboutGeneral.value, fastReveal)
-      .from(aboutDetails.value, fastReveal)
-      .from(aboutHobbies.value, fastReveal)
-      .fromTo(aboutImg.value, { filter: "invert(0%)" }, { filter: "invert(100%)", duration: 3 });
-
-  // Run the animation when the section is in the middle of the viewport
-  window.addEventListener('scroll', () => {
-    if (aboutSection.value.getBoundingClientRect().left < window.innerWidth) {
-      tl2.play();
-    }
-  })
-});
-
-</script>
-
 <style scoped>
-
-
-.content span {
-  color: #5d6a75;
-}
 
 .about {
   font-family: "Satisfy", serif !important;
@@ -127,5 +131,14 @@ onMounted(() => {
   border-radius: 5px;
   opacity: 1;
 }
+
+.section-title h2 {
+  opacity: 0;
+}
+
+.section-title span {
+  color: #1C1B22;
+}
+
 
 </style>

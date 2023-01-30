@@ -1,18 +1,19 @@
 <script setup>
-import ProgressBar from '@/components/ProgressBar.vue'
-import skillsData from '@/assets/data/skills.json'
+  import ProgressBar from '@/components/ProgressBar.vue'
+  import skillsData from '@/assets/data/skills.json'
 
-const Languages = skillsData.Languages
-const Business = skillsData.Business
+  // To easily browse the data later
+  const Languages = skillsData.Languages
+  const Business = skillsData.Business
 
+  defineProps({
+    title: {
+      type: String,
+      required: true
+    }
+  })
 
-defineProps({
-  title: {
-    type: String,
-    required: true
-  }
-})
-
+  // The animation is contained in the component ProgressBar
 </script>
 
 <template>
@@ -20,8 +21,7 @@ defineProps({
     <div class="container">
 
       <div class="section-title">
-        <span>{{ title }}</span>
-        <h2>{{ title }}</h2>
+        <span>[{{ title }}]</span>
       </div>
 
       <div class="d-flex flex-column">
@@ -49,7 +49,6 @@ defineProps({
             </div>
           </div>
         </div>
-
       </div>
 
     </div>
@@ -66,5 +65,14 @@ defineProps({
 .skills h4 {
   color: #ffb727;
 }
+
+.section-title h2 {
+  opacity: 0;
+}
+
+.section-title span {
+  color: #1C1B22;
+}
+
 
 </style>
