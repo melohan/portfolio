@@ -27,11 +27,13 @@ Les objectifs de ce cours étaient:
 
 ## Technologies
 
-| Version     | Description   |
-|-------------|---------------|
-| Bootstrap 4 | Framework CSS | 
-| Vue.js 3    | Framework JS  | 
-| GSAP 3      | Librairie JS  | 
+| Version     | Description     |
+|-------------|-----------------|
+| Bootstrap 4 | Framework CSS   | 
+| Vue.js 3    | Framework JS    | 
+| GSAP 3      | Bibliothèque JS | 
+
+Pour le template du site je me suis basée sur ce [dernier](https://bootstrapmade.com/laura-free-creative-bootstrap-theme/).
 
 ## Cloner le projet
 
@@ -62,7 +64,7 @@ npm run dev
 ## Fonctionnement de Vue.js
 
 Vue.js est un framework Javascript permettant de réaliser des interfaces utilisateurs et des applications "monopages".
-Via `Vue`, il est possible de réaliser des applications web interactive.
+Via `Vue`, il est possible de réaliser des applications web interactives.
 
 ### Architecture
 Son architecture est de type MVVM (Model-View-ViewModel). Cela signifie qu'il sépare ces différents éléments de la manière suivante:
@@ -72,9 +74,9 @@ Son architecture est de type MVVM (Model-View-ViewModel). Cela signifie qu'il s�
 
 Dans ce type d'architecture, le `ViewModel` fait office de liaison entre le `Modele` et la `Vue`, ce qui sous-entend qu'il fournit des propriétés pour relier les données du modèle à l'interface de l'utilisateur.
 Le bénéfice de cette architecture se trouve dans la séparation des responsabilités ente les différentes parties de l'application.
-Cela facilite la maintenant.
+Cela a pour effet de faciliter la maintenant.
 
-Voici certains mécanismes que j'ai observés au c ours de ce projet:
+Voici certains mécanismes que j'ai observés au cours de ce projet:
 - les directives: pour lier le modèle à la vue (v-bind, v-on, v-model, v-if)
 - les watchers  : pour pouvoir faire des modifications en réponse à des modifications.
 - les événements: hooks, mounted, updated, v-on, @click etc...
@@ -111,10 +113,10 @@ gsap.fromTo(element, { duration: 3, from: { opacity: 0 }, to: { opacity: 1 } })
 L'interface générée par mon projet est une seule et même page sans navigation ou routes.
 Mes données sont chargées depuis les `assets`, au format `JSON` et sont directement parcourues dans les `views`.
 J'ai définit deux composants (`components`) une pour les barres de niveau appelé `ProgressBar.Vue` et l'autre pour des
-bloques de `box`. Initialement je souhaitais les réutiliser à plusieurs endroits.
+div `box`. Initialement je souhaitais les réutiliser à plusieurs endroits.
 
 ### Fonctionnement
-Le point d'entrée de l'application `./src/App.vue` récupère toutes les vues dans `./src/views/*.Vue`.
+Le point d'entrée de l'application est donc `./src/App.vue`. Dans mon cas, il récupère toutes les vues dans `./src/views/*.Vue`.
 Il définit via `GSAP` la navigation `horizontale` et le `style` propre à cette implémentation.
 Celles-ci attendent d'être centrée sur l'affichage du navigateur avant de lancer leurs propres animations sur leur propre `Timeline`.
 
@@ -166,21 +168,22 @@ Lorsque la `section` de la vue `courante` était centrée sur la page, il fallai
 Dans l'idée d'appliquer un "patch temporaire" à ce problème j'ai utilisé `window.addEventListener('scroll', () => {...}` dans `onMounted`.
 
 ### Compatibilité entre les navigateurs
-Je souhaitais gérer les barres de scroll pour ne pas induire en erreur l'utilisateur mais cela ne fonctionne que sur `FireFox`.
+Je souhaitais gérer les barres de scroll pour ne pas induire en erreur l'utilisateur mais cela ne fonctionne pas par exemple sur `Google Chrome`.
 De la même manière, pour que le Scroll horizontale puisse se faire, j'ai définit un `style` propre aux applications `desktop`.
 Comme l'enclanchement des animations se base aussi sur la position horizontale, il m'était impossible de rendre le site `responsive`.
 Tout du moins, dans les temps.
 
 Je n'avais pas envisagé ces problèmes, à refaire je prendrais une navigation verticale.
-De la même manière, j'étais limitée par le template Bootstrap choisie car il me fallait le surcharger pour assumer le côté responsive.
+De la même manière, j'étais limitée par le template Bootstrap choisi car il me fallait `override` son CSS pour assumer le côté responsive.
 
 ### Méchanisme du component ProgressBar
 Il n'est malheureusement pas indépendant du méchanisme de Scroll. 
-Pour que le chargement de ces barres se fasse correctement, il a fallu que j'injecte les valeurs du JSON au moment où les ProgressBar sont centrées.
+Pour que le chargement de ces barres se fasse correctement, il a fallu que j'injecte les valeurs du JSON au moment où les `ProgressBar` sont centrées.
 
 ### Problème d'imports
 
 J'ai rencontré des problèmes lorsque je tentais d'utiliser `BootstrapVue`, `Bootstrap 5`, `VueAnimJs`.
+Je n 'ai pas réussi à résoudre ces issues à temps.
 
 ## Points d'amélioration
 
