@@ -19,7 +19,6 @@
     // target the main-container
     let container = document.querySelector("#main-container")
 
-
     gsap.to(panel, {
       xPercent: -100 * (panel.length - 1),      // Move each element of sections of 100 units
       ease: "none",                             // Progression is linear
