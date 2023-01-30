@@ -59,7 +59,6 @@
 
 <style scoped>
 
-
   /**
     Notes: The scrollbar cannot be hidden in Google
    */
