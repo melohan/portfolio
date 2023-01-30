@@ -1,5 +1,5 @@
 <template>
-  <section id="hero">
+  <section id="hero" ref="homeSection">
     <div class="hero-container">
 
       <div class="d-flex justify-content-center">
@@ -32,9 +32,10 @@
 </template>
 
 <script setup>
+import {ref, shallowRef, onMounted, onBeforeUnmount, watch, nextTick} from 'vue'
 import homeData from '@/assets/data/home.json'
-import { ref, shallowRef, onMounted, onBeforeUnmount } from 'vue'
-import { homeAnimation } from '@/views/animations/home'
+import { gsap } from "gsap";
+import * as animation from '@/views/animations/common.js';
 
 // Props
 // -------------------------------------------
@@ -47,6 +48,7 @@ defineProps({
 
 //  References
 // -------------------------------------------
+const homeSection = ref(null)
 const homeImg = ref(null);
 const homeImgContainer = ref(null);
 const homeTitle = ref(null);
@@ -56,29 +58,42 @@ const linkIcon = ref(null);
 const gitIcon = ref(null);
 const homeScroll = ref(null);
 
+// Animations
+// -------------------------------------------
 
 
-// Create an observer to make the references available to the template
-const observer = shallowRef();
+const homeAnimation = (imageContainerTarget, imageTarget, titleTarget, introTarget, descriptionTarget,
+                              firstIconTarget, secondIconTarget, scrollTextTarget ) => {
+  let tl = gsap.timeline({})
+  tl.set(imageContainerTarget.value, animation.hiddenElementAppear);
+  tl.from(imageContainerTarget.value, animation.controlledMoveFromLeft);
+  tl.from(imageTarget.value, animation.controlledMoveToRight);
+  tl.from(titleTarget.value, animation.slowIntroFromBottom);
+  tl.from(introTarget.value, animation.mediumIntroFromBottom);
+  tl.from(descriptionTarget.value, animation.slowIntroFromBottom);
+  tl.from(firstIconTarget.value, animation.quickIntroFromBottom);
+  tl.from(secondIconTarget.value, animation.quickIntroFromBottom);
+  tl.from(scrollTextTarget.value, animation.appear)
+  tl.from(scrollTextTarget.value, animation.moveLeftToRight)
+  // Use another timeline for pivoting element because the `pivot` animation is too "sophisticated"
+  pivot(secondIconTarget.value, -360, -360, 2.5, 5);
+  pivot(firstIconTarget.value, 360, 360, 2.5, 5);
+}
 
+function pivot(elementTarget, leftRotation, rightRotation, introSpeed, generalSpeed, repetition = -1){
+  gsap.set(elementTarget, { rotation: 0 });
+  const timeline = gsap.timeline({ repeat: repetition });
+  timeline
+      .to(elementTarget, { rotation: 0, duration: introSpeed })
+      .to(elementTarget, { rotation: rightRotation, duration: generalSpeed })
+      .to(elementTarget, { rotation: 0, duration: generalSpeed })
+      .to(elementTarget, { rotation: -leftRotation, duration: generalSpeed })
+      .to(elementTarget, { rotation: 0, duration: generalSpeed });
+}
 
-// Once the component is mounted, it should access to our references
 onMounted(() => {
-  homeImgContainer.value;
-  homeImg.value;
-  homeTitle.value;
-  homeIntro.value;
-  homeDescription.value;
-  linkIcon.value;
-  gitIcon.value;
-  homeScroll.value;
   homeAnimation(homeImgContainer, homeImg, homeTitle, homeIntro, homeDescription, linkIcon, gitIcon, homeScroll)
-})
-
-onBeforeUnmount(() => {
-  observer.value.disconnect()
-})
-
+});
 </script>
 
 <style scoped>

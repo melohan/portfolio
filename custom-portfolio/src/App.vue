@@ -33,21 +33,21 @@ onMounted(() => {
 <template>
   <div id="app">
     <div id="main-container">
-      <section class="panel bg-dark">
+      <div class="panel bg-dark">
         <Home title="Welcome"/>
-      </section>
-      <section class="panel bg-light">
+      </div>
+      <div class="panel bg-light">
         <About title="About me"/>
-      </section>
-      <section class="panel bg-dark">
+      </div>
+      <div class="panel bg-dark">
         <Resume title="My resume"/>
-      </section>
-      <section class="panel bg-light">
+      </div>
+      <div class="panel bg-light">
         <Skills title="Skills"/>
-      </section>
-      <section class="panel bg-dark">
+      </div>
+      <div class="panel bg-dark">
         <Realizations title="Realizations"/>
-      </section>
+      </div>
     </div>
   </div>
 </template>

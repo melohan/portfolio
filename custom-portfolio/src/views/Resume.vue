@@ -1,31 +1,15 @@
-<script setup>
-import resumeData from '@/assets/data/resume.json'
-
-const Summary = resumeData.Summary
-const Education = resumeData.Education
-const Experience = resumeData.Experience
-
-defineProps({
-  title: {
-    type: String,
-    required: true
-  }
-})
-</script>
-
 <template>
-  <section id="resume" class="resume">
+  <section id="resume" class="resume" ref="resumeSection">
     <div class="container">
 
       <div class="section-title">
-        <span>{{ title }}</span>
+        <span ref="resumeTitle">[{{ title }}]</span>
         <h2>{{ title }}</h2>
-        <p>Here is an overview of my summary</p>
+        <p ref="resumeIntro">Here is an overview of my summary!</p>
       </div>
       <div class="row">
         <!------------------------- Left col ------------------------->
-        <div class="col-lg-6">
-
+        <div class="col-lg-6" ref="leftResumeSide">
           <!-- Summary -->
           <div v-if="Summary">
             <h3 class="resume-title">Summary</h3>
@@ -49,7 +33,7 @@ defineProps({
           </div>
         </div>
         <!------------------------- Right col ------------------------->
-        <div class="col-lg-6">
+        <div class="col-lg-6" ref="rightResumeSide">
 
           <!-- Professional experiences -->
           <h3 class="resume-title">Professional Experience</h3>
@@ -70,13 +54,84 @@ defineProps({
   </section>
 </template>
 
+<script setup>
+import {ref, onMounted} from 'vue'
+import {gsap} from "gsap";
+import resumeData from '@/assets/data/resume.json'
+
+// Props
+// -------------------------------------------
+defineProps({
+  title: {
+    type: String,
+    required: true
+  }
+})
+
+//  Data
+// -------------------------------------------
+const Summary = resumeData.Summary
+const Education = resumeData.Education
+const Experience = resumeData.Experience
+
+//  References
+// -------------------------------------------
+const resumeSection = ref(null)
+const resumeTitle = ref(null)
+const resumeIntro = ref(null)
+const leftResumeSide = ref(null)
+const rightResumeSide = ref(null)
+
+// Animations
+// -------------------------------------------
+
+const popFromLeft = {
+  duration: 1.5,
+  x: -150,
+  autoAlpha: 0,
+  ease: "power3.out",
+  stagger: 1.5
+};
+
+const popFromRight = {
+  duration: 1.5,
+  x: 150,
+  autoAlpha: 0,
+  ease: "power3.out",
+  stagger: 1.5
+};
+
+onMounted(() => {
+
+  const tl3 = gsap.timeline({paused: true});
+  tl3.from(resumeTitle.value, {duration: 1.5, scale: 0.1})
+      .to(resumeTitle.value, {duration: 1, scale: 1});
+  tl3.from(leftResumeSide.value, popFromRight);
+  tl3.from(rightResumeSide.value, popFromLeft)
+
+  const tl4 = gsap.timeline({paused: true});
+  tl4.to(resumeIntro.value, {duration: 1, x: "+=300", yoyo: true, repeat: 1})
+      .to(resumeIntro.value, {duration: 1, x: "-=100", yoyo: true, repeat: 1});
+
+  window.addEventListener('scroll', () => {
+    if (resumeSection.value.getBoundingClientRect().left < window.innerWidth) {
+      tl3.play()
+      tl4.play()
+    }
+  })
+});
+
+
+</script>
+
+
 <style scoped>
 .resume {
   font-family: "Satisfy", serif !important;
 }
 
 .section-title h2 {
-  color: #ffb727
+  opacity: 0;
 }
 
 .resume-item h5 {
