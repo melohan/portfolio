@@ -123,7 +123,7 @@ onMounted(() => {
 }
 
 #about-img {
-  max-height: 50vh;
+  max-width: 50vw;
   border-radius: 5px;
   opacity: 1;
 }

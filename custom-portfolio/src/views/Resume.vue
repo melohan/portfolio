@@ -110,8 +110,9 @@ onMounted(() => {
   tl3.from(rightResumeSide.value, popFromLeft)
 
   const tl4 = gsap.timeline({paused: true});
-  tl4.to(resumeIntro.value, {duration: 1, x: "+=300", yoyo: true, repeat: 1})
-      .to(resumeIntro.value, {duration: 1, x: "-=100", yoyo: true, repeat: 1});
+  tl4.to(resumeIntro.value, {duration: 1, x: "+=200", yoyo: true, repeat: 1})
+      .to(resumeIntro.value, {duration: 1, x: "-=200", yoyo: true, repeat: 1})
+      .to(resumeIntro.value, {duration: 1, x: "+=100", yoyo: true, repeat: 1});
 
   window.addEventListener('scroll', () => {
     if (resumeSection.value.getBoundingClientRect().left < window.innerWidth) {
