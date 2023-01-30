@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
         <p ref="resumeIntro">Here is an overview of my summary!</p>
       </div>
       <div class="row">
-        <!------------------------- Left col ------------------------->
+        <!-- ----------------------- Left col ----------------------- -->
         <div class="col-lg-6" ref="leftResumeSide">
           <!-- Summary -->
           <div v-if="Summary">
@@ -119,7 +119,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!------------------------- Right col ------------------------->
+        <!-- ----------------------- Right col ----------------------- -->
         <div class="col-lg-6" ref="rightResumeSide">
 
           <!-- Professional experiences -->

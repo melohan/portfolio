@@ -97,18 +97,18 @@
   <section id="hero" ref="homeSection">
     <div class="hero-container">
 
-      <!----------- Horizontal flex div next to each other ----------->
+      <!-- --------- Horizontal flex div next to each other --------- -->
       <div class="d-flex justify-content-center">
 
-        <!------ Horizontal Left div ------>
+        <!-- ---- Horizontal Left div ---- -->
         <div class="p-2">
           <div class="reveal" ref="homeImgContainer">
             <img src="@/assets/img/portrait.webp" ref="homeImg" alt="" id="hero-img">
           </div>
         </div>
-        <!------ End Horizontal Left div ------>
+        <!-- ---- End Horizontal Left div ---- -->
 
-        <!------ Horizontal Right div ------>
+        <!-- ---- Horizontal Right div ---- -->
         <div class="p-2">
           <h1 ref="homeTitle" class="mt-5">{{ title }}</h1>
           <h2 ref="homeIntro">{{ homeData.intro }}</h2>
@@ -117,10 +117,10 @@
           <!-- Vertical flex div -->
           <div class="d-flex justify-content-start">
             <div class="p-2">
-              <img ref="linkIcon" class="hero-logo" src="../assets/img/linkedin.png" alt="">
+              <a href="https://github.com/melohan"><img ref="linkIcon" class="hero-logo" src="../assets/img/linkedin.png" alt=""></a>
             </div>
             <div class="p-2">
-              <img ref="gitIcon" class="hero-logo" src="../assets/img/github.png" alt="">
+              <a href="https://github.com/melohan"><img ref="gitIcon" class="hero-logo" src="../assets/img/github.png" alt=""></a>
             </div>
             <div class="p-lg-5" style="min-width: 10vw;">
               <h2 ref="homeScroll">Scroll >></h2>
@@ -129,7 +129,7 @@
           <!-- End Vertical flex div -->
 
         </div>
-        <!------ End Horizontal Right div ------>
+        <!-- ---- End Horizontal Right div ---- -->
 
       </div>
       <!-- End Horizontal flex div -->
