@@ -8,6 +8,16 @@ Les objectifs de ce cours étaient:
 2. Approfondire mes connaissances dans les librairies déjà étudiées.
 3. Expliquer le fonctionnement de la librairie choisie à travers mon projet.
 
+## Table des matières
+1. [Détails des objectifs](#détails-des-objectifs)
+2. [Technologies](#technologies)
+3. [Cloner le projet](#cloner-le-projet)
+4. [Description de Vue.js](#description-de-vuejs)
+5. [Description de GSAP](#description-de-gsap)
+6. [Architecture de mon projet](#architecture-de-mon-projet)
+7. [Issues](#issues)
+8. [Points d'amélioration](#points-damélioration)
+
 
 ## Détails des objectifs
 
@@ -24,8 +34,7 @@ Pour ce projet le détails de mes objectifs sont les suivants:
 | Vue.js 3    | Framework JS  | 
 | GSAP 3      | Librairie JS  | 
 
-## Récupérer le projet
-
+## Cloner le projet
 
 ### Prérequis
 
@@ -45,15 +54,14 @@ cd custom-portfolio/
 npm i
 ```
 
-### Lancer le projet (dév.)
+### Run
 
 ```shell
 npm run dev
 ```
 
-## Vue.js
+## Description de Vue.js
 
-### Description
 Vue.js est un framework Javascript permettant de réaliser des interfaces utilisateurs et des applications "monopages".
 Via `Vue`, il est possible de réaliser des applications web interactive.
 
@@ -72,7 +80,7 @@ Les méchanismes que j'ai observé sont les suivants:
 - les watchers  : pour pouvoir faire des modifications en réponse à des modifications.
 - les événements: hooks, mounted, updated, v-on, @click etc...
 
-### Méchanisme
+### Méchanismes
 Voici les principales étapes lorsque l'applicaton Vue.Js est chargée:
 1. Le navigateur charge le fichier `./index.html` avec ses références au `CSS` et au `JS` (y compris  le fichier `main.js`).
 2. Puis il exécute le code de `./src/main.js` qui comporte les dépendances et qui définit le **composant racine** `./src/App.vue`
@@ -80,8 +88,8 @@ Voici les principales étapes lorsque l'applicaton Vue.Js est chargée:
 4. Elle lies les modèles à la vue
 5. Le navigateur affiche l'interface finale construite.
 
-### GSAP - GreenSock ANimation Plateform
-Il s'agit d'un Framework JavaScript spécialisé dans les animations. Il est notamment très flexible pour animer l'HTML, le CSS et le SVG.
+## Description de GSAP
+GSAP (GreenSock ANimation Plateform) est une librairie JavaScript spécialisé dans les animations. Il est notamment très flexible pour animer l'HTML, le CSS et le SVG.
 
 Il permet notamment de déplacer et de transformer des éléments `HTML`, `CSS`, `SVG`.
 Au cours de ce projet j'ai particulièrement manipulé les tailles, les couleurs, les positions, les opacités et les décalages temporels.
@@ -163,7 +171,7 @@ Pour que le chargement de ces barres se fasse correctement, il a fallu que j'inj
 
 J'ai rencontré des problèmes lorsque je tentais d'utiliser `BootstrapVue`, `Bootstrap 5`, `VueAnimJs`.
 
-## Point d'amélioration
+## Points d'amélioration
 
 - Menu de navigation
 - Information de Scroll de fin
