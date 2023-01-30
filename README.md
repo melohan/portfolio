@@ -70,7 +70,7 @@ Via `Vue`, il est possible de réaliser des applications web interactives.
 Son architecture est de type MVVM (Model-View-ViewModel). Cela signifie qu'il sépare ces différents éléments de la manière suivante:
 - Model    : données d'application
 - Vue      : interface utilisateur
-- ViewModel: règles de présentations des données.
+- ViewModel: règles de présentation des données.
 
 Dans ce type d'architecture, le `ViewModel` fait office de liaison entre le `Modele` et la `Vue`, ce qui sous-entend qu'il fournit des propriétés pour relier les données du modèle à l'interface de l'utilisateur.
 Le bénéfice de cette architecture se trouve dans la séparation des responsabilités ente les différentes parties de l'application.
